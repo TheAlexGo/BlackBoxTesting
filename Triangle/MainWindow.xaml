@@ -1,0 +1,77 @@
+﻿<Window x:Class="Triangle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Triangle"
+        mc:Ignorable="d"
+        Title="Определение вида треугольника" Height="360" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFC5E5" Offset="0.022"/>
+                <GradientStop Color="#FF00D1FF" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Border
+            Grid.Row="0"
+            Style="{StaticResource MainBorder}"
+         >
+            <TextBlock Style="{StaticResource MainTextBlock}">
+                Определение вида треугольника
+            </TextBlock>
+        </Border>
+        <Grid Grid.Row="1" x:Name="MainGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Style="{StaticResource ColumnData}" Grid.Column="0">
+                <Border Style="{StaticResource ColumnDataBorder}">
+                    <TextBlock Style="{StaticResource SecondaryTextBlock}">
+                        Введите первую сторону
+                    </TextBlock>
+                </Border>
+                <TextBox x:Name="sideA" Text="Введите текст" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource ColumnData}" Grid.Column="1">
+                <Border Style="{StaticResource ColumnDataBorder}">
+                    <TextBlock Style="{StaticResource SecondaryTextBlock}">
+                        Введите вторую сторону
+                    </TextBlock>
+                </Border>
+                <TextBox x:Name="sideB" Text="Введите текст" />
+            </StackPanel>
+            <StackPanel Style="{StaticResource ColumnData}" Grid.Column="2">
+                <Border Style="{StaticResource ColumnDataBorder}">
+                    <TextBlock Style="{StaticResource SecondaryTextBlock}">
+                        Введите третью сторону
+                    </TextBlock>
+                </Border>
+                <TextBox x:Name="sideC" Text="Введите текст" />
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Button Style="{StaticResource MainButton}" Click="Button_Click">
+                Вычислить
+            </Button>
+        </Grid>
+        <Grid Grid.Row="3">
+            <StackPanel Style="{StaticResource ColumnData}" Grid.Column="2" VerticalAlignment="Bottom">
+                <Border Style="{StaticResource ColumnDataBorder}">
+                    <TextBlock Style="{StaticResource SecondaryTextBlock}">
+                        Результат:
+                    </TextBlock>
+                </Border>
+                <TextBlock Style="{StaticResource ResultBlock}" Name="ResultBlock" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
